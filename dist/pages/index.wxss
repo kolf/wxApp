@@ -1,0 +1,2 @@
+@import "./../npm/wepy-com-toast/toast.wxss";
+.slide-image{display:block;height:100%;width:100%}

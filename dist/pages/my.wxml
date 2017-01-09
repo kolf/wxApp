@@ -1,0 +1,30 @@
+
+    <view class="page">
+        <view class="userinfo bg-primary">
+          <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"/>
+          <text class="userinfo-nickname text-white">{{userInfo.nickName}}</text>
+        </view>
+
+        <view class="page__bd weui-cells_after-title">
+            <view class="weui-cells">
+                <view class="weui-cell weui-cell_access">
+                    <view class="weui-cell__bd">
+                        <view style="display: inline-block; vertical-align: middle">手机号</view>
+                    </view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access">18611441234</view>
+                </view>
+                <view class="weui-cell weui-cell_access">
+                    <view class="weui-cell__bd">
+                        <view style="display: inline-block; vertical-align: middle">邮箱</view>
+                    </view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access">kolf@live.cn</view>
+                </view>
+                <view class="weui-cell weui-cell_access">
+                    <view class="weui-cell__bd">
+                        <view style="display: inline-block; vertical-align: middle">我的订单</view>
+                    </view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"/>
+                </view>
+            </view>
+        </view>
+    </view>
