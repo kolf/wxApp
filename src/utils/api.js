@@ -1,5 +1,5 @@
 const API_ROOT = 'https://wx.eqiying.com:8000';
-
+const {setToken} = './common';
 const app = getApp();
 
 const request = (url, data, success, error, method) => {
@@ -18,7 +18,8 @@ const request = (url, data, success, error, method) => {
         },
         success: (res) => {
             success(res);
-            wx.hideToast()
+            console.log(res);
+            // wx.hideToast()
         },
         fail: (res) => {
             error(res)

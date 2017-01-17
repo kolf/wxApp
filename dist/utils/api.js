@@ -12,6 +12,8 @@ var _stringify2 = _interopRequireDefault(_stringify);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var API_ROOT = 'https://wx.eqiying.com:8000';
+var _common = './common',
+    setToken = _common.setToken;
 
 var app = getApp();
 
@@ -32,7 +34,8 @@ var request = function request(url, data, _success, error, method) {
         },
         success: function success(res) {
             _success(res);
-            wx.hideToast();
+            console.log(res);
+            // wx.hideToast()
         },
         fail: function fail(res) {
             error(res);
