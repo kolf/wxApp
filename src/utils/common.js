@@ -1,0 +1,7 @@
+const setToken = () => {
+
+};
+
+export {
+    setToken
+}

@@ -1,5 +1,0 @@
-@import "./counter.wxss";
-.panel {
-  text-align: left;
-  width: 100%;
-}

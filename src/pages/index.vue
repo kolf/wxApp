@@ -1,21 +1,25 @@
 <style lang="sass">
-
+.slide{
+    &-image{
+        display: block;
+        height: 100%;
+        width:100%
+    }
+}
 </style>
 
 <template>
-    <div class="page__bd">
-        <view class="weui-tab">
-            <view class="weui-navbar">
-                <block wx:for-items="{{tabs}}" wx:key="{{index}}">
-                    <view class="weui-navbar__item" bindtap="tabClick">
-                        <view class="weui-navbar__title">{{item}}</view>
-                    </view>
-                </block>
-            </view>
-            <view class="weui-tab__panel">
-                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">选项一的内容</view>
-            </view>
-        </view>
+    <swiper>
+        <block wx:for-items="{{banners}}" autoplay={true}>
+            <swiper-item>
+                <swiper-item>
+                  <image src="{{item}}" class="slide-image"/>
+                </swiper-item>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="page__bd">
+        <view class="weui-cells__title">亲子交流</view>
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
                 <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
@@ -57,46 +61,9 @@
                     <view class="text-secondary">活动时间：2017-2-9 18:00</view>
                 </view>
             </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
+        </view>
+        <view class="weui-cells__title">亲子出游</view>
+        <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
                 <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
                     <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
@@ -138,40 +105,49 @@
                 </view>
             </view>
         </view>
-
-    </div>
+    </view>
 </template>
 
 <script>
     import wepy from 'wepy';
     import Toast from 'wepy-com-toast';
+    import {getProjectColumnList} from "../utils/api";
 
     export default class Index extends wepy.page {
         config = {
-            "navigationBarTitleText": "发现",
+            "navigationBarTitleText": "首页",
         };
 
         components = {
-            toast: Toast
+            // toast: Toast
         };
 
         data = {
-            tabs: ["热度优先", "价格优先", "筛选"]
+            banners: [
+                'http://i0.hdslb.com/bfs/archive/9bab17a99758cc7a72531d15d2d5a85d73b78ded.jpg',
+                'http://i0.hdslb.com/bfs/archive/57d8001838ff81c64bef2682070e53efbe2736b7.jpg',
+                'http://i0.hdslb.com/bfs/archive/499730dbcd76823664c48e661726a37164158795.jpg',
+                'http://i0.hdslb.com/bfs/archive/c9682eac8f46fd2b261b739c5c88e21adaffab53.jpg',
+                'http://i0.hdslb.com/bfs/archive/414cf391f88bb098ded766b1d7effd9216be34ef.jpg'
+            ]
         };
 
         methods = {
-            tabClick(){
 
-            }
         };
 
         events = {
 
         };
-
         async onLoad() {
             try {
-
+                getProjectColumnList({
+                    pageIndex:1,
+                    pageSize: 10,
+                    projectColumnCode: 'PCC1000000001'
+                }, (res) => {
+                    console.log(res)
+                })
             } catch (error) {
                 console.error(error.stack);
             }

@@ -51,7 +51,7 @@
 
 <script>
     import wepy from 'wepy';
-    import Toast from 'wepy-com-toast';
+    // import Toast from 'wepy-com-toast';
 
     export default class Index extends wepy.page {
         config = {
@@ -59,7 +59,7 @@
         };
 
         components = {
-            toast: Toast
+            // toast: Toast
         };
 
         data = {

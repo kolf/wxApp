@@ -85,7 +85,13 @@ var _class = function (_wepy$app) {
                 }]
             }
         }, _this.globalData = {
-            userInfo: null
+            userInfo: null,
+            tokenPamrs: {
+                "clientId": "eqy123456",
+                "state": "22222",
+                "token": "4f7790de-a1ed-45f3-9e6a-f123845975bb",
+                "userCode": "VST1931017104987078"
+            }
         }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
     }
 

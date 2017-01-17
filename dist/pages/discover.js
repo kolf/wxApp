@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -36,11 +36,9 @@ var _wepy = require('./../npm/wepy/lib/wepy.js');
 
 var _wepy2 = _interopRequireDefault(_wepy);
 
-var _wepyComToast = require('./../npm/wepy-com-toast/toast.js');
-
-var _wepyComToast2 = _interopRequireDefault(_wepyComToast);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import Toast from 'wepy-com-toast'; 
 
 var Index = function (_wepy$page) {
     (0, _inherits3.default)(Index, _wepy$page);
@@ -58,9 +56,7 @@ var Index = function (_wepy$page) {
 
         return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Index.__proto__ || (0, _getPrototypeOf2.default)(Index)).call.apply(_ref, [this].concat(args))), _this), _this.config = {
             "navigationBarTitleText": "发现"
-        }, _this.components = {
-            toast: _wepyComToast2.default
-        }, _this.data = {
+        }, _this.components = {}, _this.data = {
             tabs: ["热度优先", "价格优先", "筛选"]
         }, _this.methods = {
             tabClick: function tabClick() {}
@@ -68,7 +64,7 @@ var Index = function (_wepy$page) {
     }
 
     (0, _createClass3.default)(Index, [{
-        key: 'onLoad',
+        key: "onLoad",
         value: function () {
             var _ref2 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
                 return _regenerator2.default.wrap(function _callee$(_context) {
@@ -80,7 +76,7 @@ var Index = function (_wepy$page) {
                                 }
 
                             case 1:
-                            case 'end':
+                            case "end":
                                 return _context.stop();
                         }
                     }
