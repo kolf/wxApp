@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -36,35 +36,42 @@ var _wepy = require('./../npm/wepy/lib/wepy.js');
 
 var _wepy2 = _interopRequireDefault(_wepy);
 
+var _wepyComToast = require('./../npm/wepy-com-toast/toast.js');
+
+var _wepyComToast2 = _interopRequireDefault(_wepyComToast);
+
+var _api = require('./../utils/api.js');
+
+var _common = require('./../utils/common.js');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import Toast from 'wepy-com-toast';
+var Discover = function (_wepy$page) {
+    (0, _inherits3.default)(Discover, _wepy$page);
 
-var Index = function (_wepy$page) {
-    (0, _inherits3.default)(Index, _wepy$page);
-
-    function Index() {
+    function Discover() {
         var _ref;
 
         var _temp, _this, _ret;
 
-        (0, _classCallCheck3.default)(this, Index);
+        (0, _classCallCheck3.default)(this, Discover);
 
         for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
             args[_key] = arguments[_key];
         }
 
-        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Index.__proto__ || (0, _getPrototypeOf2.default)(Index)).call.apply(_ref, [this].concat(args))), _this), _this.config = {
+        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Discover.__proto__ || (0, _getPrototypeOf2.default)(Discover)).call.apply(_ref, [this].concat(args))), _this), _this.config = {
             "navigationBarTitleText": "发现"
         }, _this.components = {}, _this.data = {
-            tabs: ["热度优先", "价格优先", "筛选"]
+            tabs: ["热度优先", "价格优先", "筛选"],
+            forTrips: []
         }, _this.methods = {
             tabClick: function tabClick() {}
         }, _this.events = {}, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
     }
 
-    (0, _createClass3.default)(Index, [{
-        key: "onLoad",
+    (0, _createClass3.default)(Discover, [{
+        key: 'onLoad',
         value: function () {
             var _ref2 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
                 var _this2 = this;
@@ -74,10 +81,10 @@ var Index = function (_wepy$page) {
                         switch (_context.prev = _context.next) {
                             case 0:
                                 try {
-                                    getProjectInfoForTrips({
+                                    (0, _api.getProjectInfoForTrips)({
                                         pageIndex: 1,
                                         pageSize: 5,
-                                        projectColumnCode: globalData.get('projectColumnCode')
+                                        projectColumnCode: _common.globalData.get('projectColumnCode')
                                     }, function (res) {
                                         console.log(res.dataList);
                                         _this2.forTrips = res.dataList;
@@ -87,7 +94,7 @@ var Index = function (_wepy$page) {
                                 }
 
                             case 1:
-                            case "end":
+                            case 'end':
                                 return _context.stop();
                         }
                     }
@@ -101,8 +108,8 @@ var Index = function (_wepy$page) {
             return onLoad;
         }()
     }]);
-    return Index;
+    return Discover;
 }(_wepy2.default.page);
 
 
-Page(require('./../npm/wepy/lib/wepy.js').default.$createPage(Index));
+Page(require('./../npm/wepy/lib/wepy.js').default.$createPage(Discover));

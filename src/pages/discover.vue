@@ -1,5 +1,14 @@
 <style lang="sass">
-
+    .list{
+        &-item{
+            &__img{
+                width:100px;
+                height:100px;
+                background-color:#eee;
+                display:block
+            }
+        }
+    }
 </style>
 
 <template>
@@ -36,10 +45,16 @@
 </template>
 
 <script>
-    import wepy from 'wepy';
-    // import Toast from 'wepy-com-toast';
+import wepy from 'wepy';
+import Toast from 'wepy-com-toast';
+import {
+    getProjectColumnList,
+    getProjectInfoForTrips,
+    getProjectInfoForInteract
+} from "../utils/api";
+import {globalData} from '../utils/common';
 
-    export default class Index extends wepy.page {
+    export default class Discover extends wepy.page {
         config = {
             "navigationBarTitleText": "发现",
         };
@@ -49,7 +64,8 @@
         };
 
         data = {
-            tabs: ["热度优先", "价格优先", "筛选"]
+            tabs: ["热度优先", "价格优先", "筛选"],
+            forTrips: []
         };
 
         methods = {
