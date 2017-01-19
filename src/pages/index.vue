@@ -1,156 +1,137 @@
 <style lang="sass">
-.slide{
-    &-image{
+.slide {
+    &-image {
         display: block;
         height: 100%;
-        width:100%
+        width: 100%;
+    }
+}
+
+.list{
+    &-item{
+        &__img{
+            width:100px;
+            height:100px;
+            background-color:#eee;
+            display:block
+        }
     }
 }
 </style>
 
 <template>
-    <swiper>
-        <block wx:for-items="{{banners}}" autoplay={true}>
+<swiper>
+    <block wx:for="{{banners}}" wx:key={{id}} wx:for-item="item">
+        <swiper-item>
             <swiper-item>
-                <swiper-item>
-                  <image src="{{item}}" class="slide-image"/>
-                </swiper-item>
+                <image mode="aspectFill" src="{{item.url}}" class="slide-image" />
             </swiper-item>
+        </swiper-item>
+    </block>
+</swiper>
+<view class="page__bd">
+    <view class="weui-cells__title">亲子出游</view>
+    <view class="weui-cells weui-cells_after-title">
+        <block wx:for="{{forTrips}}" wx:for-item="item">
+            <view class="weui-cell">
+                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <image src="{{item.picUrl}}" mode="aspectFill" class="list-item__img"/>
+                </view>
+                <view class="weui-cell__bd">
+                    <view>{{item.playName}}</view>
+                    <view class="text-secondary">详细地址：{{item.projectComments}}</view>
+                    <view class="text-secondary">活动时间：{{item.projectStartTime}}</view>
+                </view>
+            </view>
         </block>
-    </swiper>
-    <view class="page__bd">
-        <view class="weui-cells__title">亲子交流</view>
-        <view class="weui-cells weui-cells_after-title">
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-        </view>
-        <view class="weui-cells__title">亲子出游</view>
-        <view class="weui-cells weui-cells_after-title">
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-        </view>
     </view>
+    <view class="weui-cells__title">亲子交流</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view wx:if="{{!forInteracts.length}}" class="text-center pad-v">暂无数据</view>
+        <block wx:for="{{forInteracts}}" wx:for-item="item">
+            <view class="weui-cell">
+                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <image src="{{item.picUrl}}" mode="aspectFill" class="list-item__img"/>
+                </view>
+                <view class="weui-cell__bd">
+                    <view>{{item.playName}}</view>
+                    <view class="text-secondary">详细地址：{{item.projectComments}}</view>
+                    <view class="text-secondary">活动时间：{{item.projectStartTime}}</view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
 </template>
 
 <script>
-    import wepy from 'wepy';
-    import Toast from 'wepy-com-toast';
-    import {getProjectColumnList} from "../utils/api";
+import wepy from 'wepy';
+import Toast from 'wepy-com-toast';
+import {
+    getProjectColumnList,
+    getProjectInfoForTrips,
+    getProjectInfoForInteract
+} from "../utils/api";
+import {globalData} from '../utils/common';
 
-    export default class Index extends wepy.page {
-        config = {
-            "navigationBarTitleText": "首页",
-        };
+export default class Index extends wepy.page {
+    config = {
+        "navigationBarTitleText": "首页",
+    };
 
-        components = {
-            // toast: Toast
-        };
+    components = {
+        // toast: Toast
+    };
 
-        data = {
-            banners: [
-                'http://i0.hdslb.com/bfs/archive/9bab17a99758cc7a72531d15d2d5a85d73b78ded.jpg',
-                'http://i0.hdslb.com/bfs/archive/57d8001838ff81c64bef2682070e53efbe2736b7.jpg',
-                'http://i0.hdslb.com/bfs/archive/499730dbcd76823664c48e661726a37164158795.jpg',
-                'http://i0.hdslb.com/bfs/archive/c9682eac8f46fd2b261b739c5c88e21adaffab53.jpg',
-                'http://i0.hdslb.com/bfs/archive/414cf391f88bb098ded766b1d7effd9216be34ef.jpg'
-            ]
-        };
+    data = {
+        banners: [],
+        forTrips: [],
+    };
 
-        methods = {
+    methods = {
 
-        };
+    };
 
-        events = {
+    events = {
 
-        };
-        async onLoad() {
-            try {
-                getProjectColumnList({
-                    pageIndex:1,
-                    pageSize: 10,
-                    projectColumnCode: 'PCC1000000001'
-                }, (res) => {
-                    console.log(res)
+    };
+    async onLoad() {
+        try {
+            getProjectColumnList({
+                pageIndex: 1,
+                pageSize: 10,
+                projectColumnCode: globalData.get('projectColumnCode')
+            }, (res) => {
+                const list = res.dataList.columnImgsInfoList;
+                this.banners = list.map(item => {
+                    return {
+                        url: item.picUrl,
+                        link: 'https://www.baidu.com'
+                    }
                 })
-            } catch (error) {
-                console.error(error.stack);
-            }
+            });
+
+            getProjectInfoForTrips({
+                pageIndex: 1,
+                pageSize: 5,
+                projectColumnCode: globalData.get('projectColumnCode')
+            }, (res) => {
+                console.log(res.dataList);
+                this.forTrips = res.dataList;
+            });
+
+            getProjectInfoForInteract({
+                pageIndex: 1,
+                pageSize: 5,
+                projectColumnCode: globalData.get('projectColumnCode')
+            }, (res) => {
+                console.log(res.dataList);
+                this.forInteracts = res.dataList;
+            });
+
+        } catch (error) {
+            console.error(error.stack);
         }
-    }
+    };
+}
 </script>

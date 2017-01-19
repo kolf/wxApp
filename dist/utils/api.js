@@ -9,19 +9,16 @@ var _stringify = require('./../npm/babel-runtime/core-js/json/stringify.js');
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
+var _common = require('./common.js');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var API_ROOT = 'https://wx.eqiying.com:8000';
-var _common = './common',
-    setToken = _common.setToken;
-
-var app = getApp();
 
 var request = function request(url, data, _success, error, method) {
-    var tokenPamrs = app.$app.globalData.tokenPamrs;
-
+    var tokenPamrs = _common.globalData.get('tokenPamrs');
     wx.showToast({ title: '请求中...', icon: 'loading' });
-    wx.request({
+    wx.request_bak({
         url: API_ROOT + '/resourceMain',
         method: method || 'GET',
         data: {
@@ -33,9 +30,18 @@ var request = function request(url, data, _success, error, method) {
             'Content-Type': 'application/json'
         },
         success: function success(res) {
-            _success(res);
-            console.log(res);
-            // wx.hideToast()
+            var _res$data = res.data,
+                isSuccess = _res$data.isSuccess,
+                retmsg = _res$data.retmsg,
+                data = _res$data.data;
+
+            if (isSuccess) {
+                _common.globalData.set('tokenPamrs', {
+                    "token": data.token
+                });
+                wx.hideToast();
+                _success && _success(data);
+            }
         },
         fail: function fail(res) {
             error(res);

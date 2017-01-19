@@ -1,1 +1,1 @@
-.slide-image{display:block;height:100%;width:100%}
+.slide-image{display:block;height:100%;width:100%}.list-item__img{width:100px;height:100px;background-color:#eee;display:block}

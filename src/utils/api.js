@@ -1,11 +1,11 @@
 const API_ROOT = 'https://wx.eqiying.com:8000';
-const {setToken} = './common';
-const app = getApp();
+
+import {globalData} from './common.js';
 
 const request = (url, data, success, error, method) => {
-    const {tokenPamrs} = app.$app.globalData;
+    const tokenPamrs = globalData.get('tokenPamrs');
     wx.showToast({title: '请求中...', icon: 'loading'});
-    wx.request({
+    wx.request_bak({
         url: API_ROOT + '/resourceMain',
         method: method || 'GET',
         data: {
@@ -17,9 +17,14 @@ const request = (url, data, success, error, method) => {
             'Content-Type': 'application/json'
         },
         success: (res) => {
-            success(res);
-            console.log(res);
-            // wx.hideToast()
+            const {data: {isSuccess, retmsg, data}} = res;
+            if(isSuccess){
+                globalData.set('tokenPamrs', {
+                    "token": data.token
+                });
+                wx.hideToast();
+                success && success(data);
+            }
         },
         fail: (res) => {
             error(res)

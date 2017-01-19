@@ -1,10 +1,14 @@
 const app = getApp();
 
-const setToken = (data) => {
-    let {tokenPamrs} = app.$app.globalData;
-    Object.assign(tokenPamrs, data);
-};
+const globalData = {
+    get(key){
+        return app.$app.globalData[key];
+    },
+    set(key, value){
+        Object.assign(app.$app.globalData[key], value);
+    }
+}
 
 export {
-    setToken
+    globalData
 }

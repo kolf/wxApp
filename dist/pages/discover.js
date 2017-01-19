@@ -38,7 +38,7 @@ var _wepy2 = _interopRequireDefault(_wepy);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import Toast from 'wepy-com-toast'; 
+// import Toast from 'wepy-com-toast';
 
 var Index = function (_wepy$page) {
     (0, _inherits3.default)(Index, _wepy$page);
@@ -67,11 +67,22 @@ var Index = function (_wepy$page) {
         key: "onLoad",
         value: function () {
             var _ref2 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
+                var _this2 = this;
+
                 return _regenerator2.default.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                try {} catch (error) {
+                                try {
+                                    getProjectInfoForTrips({
+                                        pageIndex: 1,
+                                        pageSize: 5,
+                                        projectColumnCode: globalData.get('projectColumnCode')
+                                    }, function (res) {
+                                        console.log(res.dataList);
+                                        _this2.forTrips = res.dataList;
+                                    });
+                                } catch (error) {
                                     console.error(error.stack);
                                 }
 

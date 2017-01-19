@@ -42,6 +42,8 @@ var _wepyComToast2 = _interopRequireDefault(_wepyComToast);
 
 var _api = require('./../utils/api.js');
 
+var _common = require('./../utils/common.js');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Index = function (_wepy$page) {
@@ -63,7 +65,8 @@ var Index = function (_wepy$page) {
         }, _this.components = {
             // toast: Toast
         }, _this.data = {
-            banners: ['http://i0.hdslb.com/bfs/archive/9bab17a99758cc7a72531d15d2d5a85d73b78ded.jpg', 'http://i0.hdslb.com/bfs/archive/57d8001838ff81c64bef2682070e53efbe2736b7.jpg', 'http://i0.hdslb.com/bfs/archive/499730dbcd76823664c48e661726a37164158795.jpg', 'http://i0.hdslb.com/bfs/archive/c9682eac8f46fd2b261b739c5c88e21adaffab53.jpg', 'http://i0.hdslb.com/bfs/archive/414cf391f88bb098ded766b1d7effd9216be34ef.jpg']
+            banners: [],
+            forTrips: []
         }, _this.methods = {}, _this.events = {}, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
     }
 
@@ -71,6 +74,8 @@ var Index = function (_wepy$page) {
         key: 'onLoad',
         value: function () {
             var _ref2 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
+                var _this2 = this;
+
                 return _regenerator2.default.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
@@ -79,9 +84,33 @@ var Index = function (_wepy$page) {
                                     (0, _api.getProjectColumnList)({
                                         pageIndex: 1,
                                         pageSize: 10,
-                                        projectColumnCode: 'PCC1000000001'
+                                        projectColumnCode: _common.globalData.get('projectColumnCode')
                                     }, function (res) {
-                                        console.log(res);
+                                        var list = res.dataList.columnImgsInfoList;
+                                        _this2.banners = list.map(function (item) {
+                                            return {
+                                                url: item.picUrl,
+                                                link: 'https://www.baidu.com'
+                                            };
+                                        });
+                                    });
+
+                                    (0, _api.getProjectInfoForTrips)({
+                                        pageIndex: 1,
+                                        pageSize: 5,
+                                        projectColumnCode: _common.globalData.get('projectColumnCode')
+                                    }, function (res) {
+                                        console.log(res.dataList);
+                                        _this2.forTrips = res.dataList;
+                                    });
+
+                                    (0, _api.getProjectInfoForInteract)({
+                                        pageIndex: 1,
+                                        pageSize: 5,
+                                        projectColumnCode: _common.globalData.get('projectColumnCode')
+                                    }, function (res) {
+                                        console.log(res.dataList);
+                                        _this2.forInteracts = res.dataList;
                                     });
                                 } catch (error) {
                                     console.error(error.stack);

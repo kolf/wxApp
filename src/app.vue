@@ -21,6 +21,18 @@ page {
         color: #999;
         font-size: 13px;
     }
+    &-center{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.pad{
+    &-v{
+        padding-top:1em;
+        padding-bottom:1em;
+    }
 }
 </style>
 
@@ -40,7 +52,8 @@ export default class extends wepy.app {
             "backgroundTextStyle": "light",
             "navigationBarBackgroundColor": "#ff9d00",
             "navigationBarTitleText": "app",
-            "navigationBarTextStyle": "light"
+            "navigationBarTextStyle": "light",
+            // "enablePullDownRefresh": true
         },
         "tabBar": {
             "color": "#000",
@@ -73,7 +86,8 @@ export default class extends wepy.app {
             "state": "22222",
             "token": "4f7790de-a1ed-45f3-9e6a-f123845975bb",
             "userCode": "VST1931017104987078"
-        }
+        },
+        projectColumnCode: 'PCC1000000001'
     };
 
     onLaunch() {

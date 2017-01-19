@@ -9,130 +9,23 @@
                 </block>
             </view>
             <view class="weui-tab__panel">
-                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">选项一的内容</view>
+
             </view>
         </view>
         <view class="weui-cells weui-cells_after-title">
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
+            <view xmlns:wx="" wx:if="{{!forTrips.length}}" class="text-center pad-v">暂无数据</view>
+            <block wx:for="{{forTrips}}" wx:for-item="item">
+                <view class="weui-cell">
+                    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                        <image src="{{item.picUrl}}" mode="aspectFill" class="list-item__img"/>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <view>{{item.playName}}</view>
+                        <view class="text-secondary">详细地址：{{item.projectComments}}</view>
+                        <view class="text-secondary">活动时间：{{item.projectStartTime}}</view>
+                    </view>
                 </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="http://placeholder.qiniudn.com/100x80" style="width: 100px; height: 80px; display: block"/>
-                </view>
-                <view class="weui-cell__bd">
-                    <view>水泉沟村（莲花缘度假村）</view>
-                    <view class="text-secondary">详细地址：延庆县大庄科...</view>
-                    <view class="text-secondary">活动时间：2017-2-9 18:00</view>
-                </view>
-            </view>
+            </block>
         </view>
 
     </div>
