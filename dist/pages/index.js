@@ -40,8 +40,6 @@ var _wepyComToast = require('./../npm/wepy-com-toast/toast.js');
 
 var _wepyComToast2 = _interopRequireDefault(_wepyComToast);
 
-var _api = require('./../utils/api.js');
-
 var _common = require('./../utils/common.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -81,7 +79,7 @@ var Index = function (_wepy$page) {
                         switch (_context.prev = _context.next) {
                             case 0:
                                 try {
-                                    (0, _api.getProjectColumnList)({
+                                    (0, _common.request)('getProjectColumnList', {
                                         pageIndex: 1,
                                         pageSize: 10,
                                         projectColumnCode: _common.globalData.get('projectColumnCode')
@@ -95,16 +93,18 @@ var Index = function (_wepy$page) {
                                         });
                                     });
 
-                                    (0, _api.getProjectInfoForTrips)({
+                                    (0, _common.request)('getProjectInfoForTrips', {
                                         pageIndex: 1,
                                         pageSize: 5,
                                         projectColumnCode: _common.globalData.get('projectColumnCode')
                                     }, function (res) {
                                         console.log(res.dataList);
                                         _this2.forTrips = res.dataList;
+                                    }, function (err) {
+                                        console.log(err);
                                     });
 
-                                    (0, _api.getProjectInfoForInteract)({
+                                    (0, _common.request)('getProjectInfoForInteract', {
                                         pageIndex: 1,
                                         pageSize: 5,
                                         projectColumnCode: _common.globalData.get('projectColumnCode')

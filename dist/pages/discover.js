@@ -40,8 +40,6 @@ var _wepyComToast = require('./../npm/wepy-com-toast/toast.js');
 
 var _wepyComToast2 = _interopRequireDefault(_wepyComToast);
 
-var _api = require('./../utils/api.js');
-
 var _common = require('./../utils/common.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -64,7 +62,7 @@ var Discover = function (_wepy$page) {
             "navigationBarTitleText": "发现"
         }, _this.components = {}, _this.data = {
             tabs: ["热度优先", "价格优先", "筛选"],
-            forTrips: []
+            list: []
         }, _this.methods = {
             tabClick: function tabClick() {}
         }, _this.events = {}, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
@@ -81,13 +79,13 @@ var Discover = function (_wepy$page) {
                         switch (_context.prev = _context.next) {
                             case 0:
                                 try {
-                                    (0, _api.getProjectInfoForTrips)({
+                                    (0, _common.request)('getProjectInfoForTrips', {
                                         pageIndex: 1,
                                         pageSize: 5,
                                         projectColumnCode: _common.globalData.get('projectColumnCode')
                                     }, function (res) {
                                         console.log(res.dataList);
-                                        _this2.forTrips = res.dataList;
+                                        _this2.list = res.dataList;
                                     });
                                 } catch (error) {
                                     console.error(error.stack);

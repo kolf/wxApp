@@ -67,12 +67,7 @@
 <script>
 import wepy from 'wepy';
 import Toast from 'wepy-com-toast';
-import {
-    getProjectColumnList,
-    getProjectInfoForTrips,
-    getProjectInfoForInteract
-} from "../utils/api";
-import {globalData} from '../utils/common';
+import {globalData, request} from '../utils/common';
 
 export default class Index extends wepy.page {
     config = {
@@ -97,7 +92,7 @@ export default class Index extends wepy.page {
     };
     async onLoad() {
         try {
-            getProjectColumnList({
+            request('getProjectColumnList', {
                 pageIndex: 1,
                 pageSize: 10,
                 projectColumnCode: globalData.get('projectColumnCode')
@@ -111,16 +106,18 @@ export default class Index extends wepy.page {
                 })
             });
 
-            getProjectInfoForTrips({
+            request('getProjectInfoForTrips', {
                 pageIndex: 1,
                 pageSize: 5,
                 projectColumnCode: globalData.get('projectColumnCode')
             }, (res) => {
                 console.log(res.dataList);
                 this.forTrips = res.dataList;
+            }, (err) => {
+                console.log(err)
             });
 
-            getProjectInfoForInteract({
+            request('getProjectInfoForInteract', {
                 pageIndex: 1,
                 pageSize: 5,
                 projectColumnCode: globalData.get('projectColumnCode')

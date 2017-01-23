@@ -26,8 +26,8 @@
             </view>
         </view>
         <view class="weui-cells weui-cells_after-title">
-            <view wx:if="{{!forTrips.length}}" class="text-center pad-v">暂无数据</view>
-            <block wx:for="{{forTrips}}" wx:for-item="item">
+            <view wx:if="{{!list.length}}" class="text-center pad-v">暂无数据</view>
+            <block wx:for="{{list}}" wx:for-item="item">
                 <view class="weui-cell">
                     <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
                         <image src="{{item.picUrl}}" mode="aspectFill" class="list-item__img"/>
@@ -47,12 +47,7 @@
 <script>
 import wepy from 'wepy';
 import Toast from 'wepy-com-toast';
-import {
-    getProjectColumnList,
-    getProjectInfoForTrips,
-    getProjectInfoForInteract
-} from "../utils/api";
-import {globalData} from '../utils/common';
+import {globalData, request} from '../utils/common';
 
     export default class Discover extends wepy.page {
         config = {
@@ -65,7 +60,7 @@ import {globalData} from '../utils/common';
 
         data = {
             tabs: ["热度优先", "价格优先", "筛选"],
-            forTrips: []
+            list: []
         };
 
         methods = {
@@ -80,13 +75,13 @@ import {globalData} from '../utils/common';
 
         async onLoad() {
             try {
-                getProjectInfoForTrips({
+                request('getProjectInfoForTrips', {
                     pageIndex: 1,
                     pageSize: 5,
                     projectColumnCode: globalData.get('projectColumnCode')
                 }, (res) => {
                     console.log(res.dataList);
-                    this.forTrips = res.dataList;
+                    this.list = res.dataList;
                 });
             } catch (error) {
                 console.error(error.stack);

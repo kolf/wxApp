@@ -1,0 +1,50 @@
+{
+    "isSuccess": true,
+    "retcode": "P0",
+    "retmsg": "成功",
+    "data": {
+        "dataList": {
+            "columnImgsInfoList": [{
+                "piiId": 2,
+                "picUrl": "http://placekitten.com/g/640/400",
+                "createTime": 1469771139000,
+                "picType": 1,
+                "picUri": "http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg",
+                "remark": "第一个图片",
+                "updateTime": 1484815478000,
+                "picStatus": 1,
+                "projectColumnId": 1
+            }, {
+                "piiId": 138,
+                "picUrl": "http://placekitten.com/g/640/400",
+                "createTime": 1469771139000,
+                "picType": 1,
+                "picUri": "http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg",
+                "remark": "第一个图片",
+                "updateTime": 1484815478000,
+                "picStatus": 1,
+                "projectColumnId": 1
+            }, {
+                "piiId": 139,
+                "picUrl": "http://placekitten.com/g/640/400",
+                "createTime": 1469771139000,
+                "picType": 1,
+                "picUri": "http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg",
+                "remark": "第一个图片",
+                "updateTime": 1484815478000,
+                "picStatus": 1,
+                "projectColumnId": 1
+            }],
+            "createUserId": 1,
+            "projectColumnCode": "PCC1000000001",
+            "createTime": 1473317850000,
+            "updateTime": 1473317850000,
+            "projectColumnStatus": 1,
+            "projectColumnName": "亲自出游",
+            "projectColumnType": 1,
+            "projectColumnDesc": "亲自出游",
+            "projectColumnId": 1
+        },
+        "token": "5A4835EE72B646F389EAB82BA5CFC91D"
+    }
+}

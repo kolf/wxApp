@@ -13,8 +13,8 @@
             </view>
         </view>
         <view class="weui-cells weui-cells_after-title">
-            <view xmlns:wx="" wx:if="{{!forTrips.length}}" class="text-center pad-v">暂无数据</view>
-            <block wx:for="{{forTrips}}" wx:for-item="item">
+            <view xmlns:wx="" wx:if="{{!list.length}}" class="text-center pad-v">暂无数据</view>
+            <block wx:for="{{list}}" wx:for-item="item">
                 <view class="weui-cell">
                     <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
                         <image src="{{item.picUrl}}" mode="aspectFill" class="list-item__img"/>

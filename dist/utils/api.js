@@ -1,10 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.getProjectInfoForInteract = exports.getProjectInfoForTrips = exports.getProjectColumnList = undefined;
-
 var _stringify = require('./../npm/babel-runtime/core-js/json/stringify.js');
 
 var _stringify2 = _interopRequireDefault(_stringify);
@@ -49,17 +44,3 @@ var request = function request(url, data, _success, error, method) {
         complete: function complete(res) {}
     });
 };
-
-var getProjectColumnList = function getProjectColumnList(data, success, error) {
-    return request('getProjectColumnList', data, success, error);
-};
-var getProjectInfoForTrips = function getProjectInfoForTrips(data, success, error) {
-    return request('getProjectInfoForTrips', data, success, error);
-};
-var getProjectInfoForInteract = function getProjectInfoForInteract(data, success, error) {
-    return request('getProjectInfoForInteract', data, success, error);
-};
-
-exports.getProjectColumnList = getProjectColumnList;
-exports.getProjectInfoForTrips = getProjectInfoForTrips;
-exports.getProjectInfoForInteract = getProjectInfoForInteract;
